@@ -1,19 +1,3 @@
---[[
-
-GAME LOOP
-- [] In match rank/LP
-- [] In match streak indicator
-- [] Face-off screen rank/LP
-- [] Face-off screen streak indicator
-- [] Face-off screen rank up opportunity
-- [] End of match screen rank / LP bar
-- [] End of match screen streak indicator
-- [] End of match star rank up noise and animation
-- [] End of match star rank down?
-- [] Full screen league promotion animation
-
-]]
-
 local exclude = {
 	-- Fighting ground top right corner
 	OnlineBannerUI = { { "c_main", "c_contents", "c_rank" } },
@@ -26,6 +10,11 @@ local exclude = {
 	CFNFighterProfileChildPlayTab1 = {
 		{ "c_main", "c_user_point", "e_text_lp_num" },
 		{ "c_main", "c_user_point", "e_text_leaguepoint" },
+	},
+	-- Battle settings > character settings > title settings preview
+	MatchingFighterSetting = {
+		{ "c_main", "p_Group_0_switch_show", "c_list", "p_MatchingTitleSetting_1_h", "p_Group_0_switch", "c_detail",
+			"c_preview", "p_FightersProfileBanner_0", "p_SmallRankIcon_" }
 	},
 
 	CustomRoomRoom = {
@@ -116,7 +105,45 @@ local exclude = {
 			"p_FighterBannerRankingInfo_",
 			"c_rank" },
 	},
+
+	-- In-match HUD
+	BattleHud_AccountInfo = { { "c_main", "c_hud", "p_BattleHudAccountInfo_%d", "c_RankInfo" } },
+	BattleHud_WinCount = { { "c_main" } }, -- Unverified. Win streak.
+
+	-- Versus screen
+	VSInfoOffline = {
+		{ "c_main", "p_VsInfoTop_player%d_v", "c_online", "c_RankIcon" },
+		{ "c_main", "p_VsInfoTop_player%d_v", "c_online", "c_chance" }, -- Unverified. Rank up opportunity
+		{ "c_main", "p_VsInfoTop_player%d_v", "c_streak" },       -- Unverified. Win streak
+	},
+
+	-- Unverified. League promotion fullscreen animation.
+	RankUp = { { "c_main" } },
+
+	-- Unverified. End of ranked match.
+	RankGauge_1P = { { "c_main" } },
+	RankGauge_2P = { { "c_main" } },
 };
+
+local dumped = {};
+local dump;
+dump = function(control, prefix)
+	if not control then
+		return;
+	end
+	local prefix = prefix or "";
+	log.info(prefix .. control:call("get_Name"));
+
+	local child = control:call("get_Child");
+	if child then
+		dump(child, prefix .. "  ");
+	end
+
+	local next = control:call("get_Next");
+	if next then
+		dump(next, prefix);
+	end
+end
 
 local hide_path;
 hide_path = function(control, path, depth)
@@ -139,6 +166,12 @@ re.on_pre_gui_draw_element(function(element, context)
 	local game_object = element:call("get_GameObject");
 	local view = element:call("get_View");
 	local game_object_name = game_object:call("get_Name");
+
+	if not dumped[game_object_name] then
+		-- log.info("Dumping " .. game_object_name);
+		-- dump(view);
+		dumped[game_object_name] = true;
+	end
 
 	local exclude_paths = exclude[game_object_name];
 	if exclude_paths then
