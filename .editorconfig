@@ -1,0 +1,4 @@
+[*.lua]
+
+max_line_length = 600
+align_array_table = false
