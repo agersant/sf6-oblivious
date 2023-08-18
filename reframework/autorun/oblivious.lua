@@ -37,6 +37,11 @@ local exclude = {
 		{ "c_main", "p_Group_0_switch", "p_ScrollList_chara_v", "item%d", "p_SmallRankIcon_" },
 		{ "c_main", "p_Group_0_switch", "p_ScrollList_chara_v", "item%d", "e_text_lp_num" },
 	},
+	-- CFN > profile > stats > Master Rate tab
+	CFNFighterProfileChildPlayTab6 = {
+		{ "c_main", "p_Group_0_switch", "p_ScrollList_chara_v", "p_CharacterUseBanner", "p_SmallRankIcon_" },
+		{ "c_main", "p_Group_0_switch", "p_ScrollList_chara_v", "item%d", "p_SmallRankIcon_" },
+	},
 	-- CFN > profile > history rows
 	CFNFighterProfileChildBattleLog = {
 		{ "c_main", "p_ScrollList_0_v_noloop", "p_ReplayBannerProfile_", "p_ReplayBannerPlayerInfoShort_%dP", "p_SmallRankIcon_" },
