@@ -83,7 +83,7 @@ local exclude = {
 	-- Unverified. League promotion fullscreen animation.
 	RankUp = { { "c_main" } },
 
-	-- Unverified. End of ranked match.
+	-- End of ranked match.
 	RankGauge_1P = { { "c_main" } },
 	RankGauge_2P = { { "c_main" } },
 };
