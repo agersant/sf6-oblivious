@@ -76,21 +76,22 @@ local exclude = {
 
 	-- In-match HUD
 	BattleHud_AccountInfo = { { "c_main", "c_hud", "p_BattleHudAccountInfo_%d", "c_RankInfo" } },
-	BattleHud_WinCount = { { "c_main" } }, -- Unverified. Win streak.
+	BattleHud_WinCount = { { "c_main" } }, -- Win streak.
 
 	-- Versus screen
 	VSInfoOffline = {
 		{ "c_main", "p_VsInfoTop_player%d_v", "c_online", "c_RankIcon" },
-		{ "c_main", "p_VsInfoTop_player%d_v", "c_online", "c_chance" }, -- Unverified. Rank up opportunity
-		{ "c_main", "p_VsInfoTop_player%d_v", "c_streak" },       -- Unverified. Win streak
+		{ "c_main", "p_VsInfoTop_player%d_v", "c_online", "c_chance" }, -- Rank up opportunity
+		{ "c_main", "p_VsInfoTop_player%d_v", "c_streak" },
 	},
 
 	-- Unverified. League promotion fullscreen animation.
 	RankUp = { { "c_main" } },
 
-	-- End of ranked match.
+	-- End of match
 	RankGauge_1P = { { "c_main" } },
 	RankGauge_2P = { { "c_main" } },
+	ResultCounter = { { "c_main", "c_winning_streak" } },
 };
 
 local dumped = {};
