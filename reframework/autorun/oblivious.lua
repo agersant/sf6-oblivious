@@ -18,12 +18,19 @@ local exclude = {
 		-- Custom room participant rows
 		{ "c_main", "p_Group_base_h", "p_Group_communication_v", "p_ScrollList_member_v", "p_CustomRoomMemberBanner_", "p_LargeRankIcon_0" },
 		{ "c_main", "p_Group_base_h", "p_Group_communication_v", "p_ScrollList_member_v", "item%d+", "p_LargeRankIcon_0" },
-		-- Custom room slot
+		-- Custom room singles slot
 		{ "c_main", "p_Group_base_h", "p_Group_table_v", "p_SimpleList_SingleTable_v", "p_CustomRoomSimpleTable_%d", "p_CustomRoomMemberBanner_player%d", "p_LargeRankIcon_0" },
+		-- Custom room teams slot
+		{ "c_main", "p_Group_base_h", "p_Group_table_v", "p_SimpleList_TeamTable_v", "p_CustomRoomMultiTable_0", "p_CustomRoomMemberBanner_blue%d", "p_LargeRankIcon_0" },
+		{ "c_main", "p_Group_base_h", "p_Group_table_v", "p_SimpleList_TeamTable_v", "p_CustomRoomMultiTable_0", "p_CustomRoomMemberBanner_red%d", "p_LargeRankIcon_0" },
 	},
 	-- Custom room slot popup
 	CustomRoomTableDetail = {
-		{ "c_main", "p_Group_all_v", "p_CustomRoomSimpleTable_simpleTable_h", "p_CustomRoomMemberBanner_player%d", "p_LargeRankIcon_0" }
+		-- Singles
+		{ "c_main", "p_Group_all_v", "p_CustomRoomSimpleTable_simpleTable_h", "p_CustomRoomMemberBanner_player%d", "p_LargeRankIcon_0" },
+		-- Teams
+		{ "c_main", "p_Group_all_v", "p_CustomRoomMultiTableDetail_teamTable_h", "p_Group_blue_v", "p_SimpleList_blue%d_h", "p_CustomRoomMemberBanner_blue%d", "p_LargeRankIcon_0" },
+		{ "c_main", "p_Group_all_v", "p_CustomRoomMultiTableDetail_teamTable_h", "p_Group_red_v", "p_SimpleList_red%d_h", "p_CustomRoomMemberBanner_red%d", "p_LargeRankIcon_0" },
 	},
 
 	-- CFN > profile > stats/history/clubs banner
