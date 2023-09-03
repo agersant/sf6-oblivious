@@ -32,6 +32,12 @@ local exclude = {
 		{ "c_main", "p_Group_all_v", "p_CustomRoomMultiTableDetail_teamTable_h", "p_Group_blue_v", "p_SimpleList_blue%d_h", "p_CustomRoomMemberBanner_blue%d", "p_LargeRankIcon_0" },
 		{ "c_main", "p_Group_all_v", "p_CustomRoomMultiTableDetail_teamTable_h", "p_Group_red_v", "p_SimpleList_red%d_h", "p_CustomRoomMemberBanner_red%d", "p_LargeRankIcon_0" },
 	},
+	-- Custom room accept match
+	CustomRoomReadyConfirm = {
+		{ "c_main", "p_CustomRoomSimpleReadyTable_single", "p_CustomRoomMemberBanner_player%d", "p_LargeRankIcon_0" },
+		{ "c_main", "c_TeamTable", "c_team_blue", "c_item_%d", "p_LargeRankIcon_0" },
+		{ "c_main", "c_TeamTable", "c_team_red", "c_item_%d", "p_LargeRankIcon_0" },
+	},
 
 	-- CFN > profile > stats/history/clubs banner
 	CFNFighterProfileTop = {
