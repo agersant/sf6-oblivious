@@ -86,6 +86,11 @@ local exclude = {
 		{ "c_main", "p_Group_root_switch", "p_RankingListLeaguePoint", "p_ScrollList_ranking_v_noloop", "item%d", "p_FighterBannerRankingInfo_", "e_text_lp" },
 		{ "c_main", "p_Group_root_switch", "p_RankingListLeaguePoint", "p_ScrollList_ranking_v_noloop", "item%d", "p_FighterBannerRankingInfo_", "c_rank" },
 	},
+	-- CFN > clubs > clubs joined > management > member list
+	CFNCircleMemberList = {
+		{ "c_main", "p_FighterThumbnail_", "p_LargeRankIcon_0" },
+		{ "c_main", "p_FighterThumbnail_", "c_league_point" },
+	},
 
 	-- In-match HUD
 	BattleHud_AccountInfo = { { "c_main", "c_hud", "p_BattleHudAccountInfo_%d", "c_RankInfo" } },
