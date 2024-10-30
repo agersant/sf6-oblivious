@@ -10,6 +10,9 @@ local exclude = {
 	CFNFighterProfileChildPlayTab1 = {
 		{ "c_main", "c_user_point", "e_text_lp_num" },
 		{ "c_main", "c_user_point", "e_text_leaguepoint" },
+        { "c_main", "c_user_point", "c_master", "e_text_master" },
+        { "c_main", "c_user_point", "c_master", "e_text_mr_num" },
+
 	},
 	-- Battle settings > character settings > title settings preview
 	MatchingFighterSetting = { { "c_main", "p_Group_0_switch_show", "c_list", "p_MatchingTitleSetting_1_h", "p_Group_0_switch", "c_detail", "c_preview", "p_FightersProfileBanner_0", "p_SmallRankIcon_" } },
@@ -38,7 +41,10 @@ local exclude = {
 		{ "c_main", "c_TeamTable", "c_team_blue", "c_item_%d", "p_LargeRankIcon_0" },
 		{ "c_main", "c_TeamTable", "c_team_red", "c_item_%d", "p_LargeRankIcon_0" },
 	},
-
+	-- CFN club members
+	CFNFighterListChildCircleMemberTab = {
+		{ "c_main", "p_Group_root_switch", "p_FighterListCircle_", "p_ScrollList_multi_v" },
+	},
 	-- CFN > profile > stats/history/clubs banner
 	CFNFighterProfileTop = {
 		{ "c_main", "p_FightersProfileBanner_", "p_SmallRankIcon_" },
@@ -54,6 +60,7 @@ local exclude = {
 	CFNFighterProfileChildPlayTab6 = {
 		{ "c_main", "p_Group_0_switch", "p_ScrollList_chara_v", "p_CharacterUseBanner", "p_SmallRankIcon_" },
 		{ "c_main", "p_Group_0_switch", "p_ScrollList_chara_v", "item%d", "p_SmallRankIcon_" },
+        { "c_main", "p_Group_0_switch", "p_ScrollList_chara_v" },
 	},
 	-- CFN > profile > history rows
 	CFNFighterProfileChildBattleLog = {
@@ -86,6 +93,11 @@ local exclude = {
 		{ "c_main", "p_Group_root_switch", "p_RankingListLeaguePoint", "p_ScrollList_ranking_v_noloop", "item%d", "p_FighterBannerRankingInfo_", "e_text_lp" },
 		{ "c_main", "p_Group_root_switch", "p_RankingListLeaguePoint", "p_ScrollList_ranking_v_noloop", "item%d", "p_FighterBannerRankingInfo_", "c_rank" },
 	},
+
+    CFNRankingChildMasterRating = { 
+        {"c_main", "p_Group_root_switch", "p_RankingListMasterRating_" },
+    },
+
 	-- CFN > clubs > clubs joined > management > member list
 	CFNCircleMemberList = {
 		{ "c_main", "p_FighterThumbnail_", "p_LargeRankIcon_0" },
@@ -112,6 +124,7 @@ local exclude = {
 	ResultCounter = { { "c_main", "c_winning_streak" } },
 };
 
+log.debug("entry")
 local dumped = {};
 local dump;
 dump = function(control, prefix)
@@ -119,7 +132,7 @@ dump = function(control, prefix)
 		return;
 	end
 	local prefix = prefix or "";
-	log.info(prefix .. control:call("get_Name"));
+	log.debug(prefix .. control:call("get_Name"));
 
 	local child = control:call("get_Child");
 	if child then
@@ -155,8 +168,8 @@ re.on_pre_gui_draw_element(function(element, context)
 	local game_object_name = game_object:call("get_Name");
 
 	if not dumped[game_object_name] then
-		-- log.info("Dumping " .. game_object_name);
-		-- dump(view);
+		log.debug("Dumping " .. game_object_name);
+		dump(view);
 		dumped[game_object_name] = true;
 	end
 
