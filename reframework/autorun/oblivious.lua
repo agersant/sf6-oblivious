@@ -141,25 +141,25 @@ local exclude = {
 	ResultCounter = { { "c_main", "c_winning_streak" } },
 };
 
-local dumped = {};
-local dump;
-dump = function(control, prefix)
-	if not control then
-		return;
-	end
-	local prefix = prefix or "";
-	log.debug(prefix .. control:call("get_Name"));
+-- local dumped = {};
+-- local dump;
+-- dump = function(control, prefix)
+-- 	if not control then
+-- 		return;
+-- 	end
+-- 	local prefix = prefix or "";
+-- 	log.debug(prefix .. control:call("get_Name"));
 
-	local child = control:call("get_Child");
-	if child then
-		dump(child, prefix .. "  ");
-	end
+-- 	local child = control:call("get_Child");
+-- 	if child then
+-- 		dump(child, prefix .. "  ");
+-- 	end
 
-	local next = control:call("get_Next");
-	if next then
-		dump(next, prefix);
-	end
-end
+-- 	local next = control:call("get_Next");
+-- 	if next then
+-- 		dump(next, prefix);
+-- 	end
+-- end
 
 local hide_path;
 hide_path = function(control, path, depth)
@@ -183,11 +183,11 @@ re.on_pre_gui_draw_element(function(element, context)
 	local view = element:call("get_View");
 	local game_object_name = game_object:call("get_Name");
 
-	if not dumped[game_object_name] then
-		log.debug("Dumping " .. game_object_name);
-		dump(view);
-		dumped[game_object_name] = true;
-	end
+	-- if not dumped[game_object_name] then
+	-- 	log.debug("Dumping " .. game_object_name);
+	-- 	dump(view);
+	-- 	dumped[game_object_name] = true;
+	-- end
 
 	local exclude_paths = exclude[game_object_name];
 	if exclude_paths then
