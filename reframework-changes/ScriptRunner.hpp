@@ -252,10 +252,10 @@ public:
         return m_last_battle_type;
     }
     void set_last_online_match_state() {
-        m_last_online_match_state = true;
+        m_last_online_match_state = false;
     }
     bool is_online_match() {
-        return false; //ensure fix for oblivious
+        return false;
     }
     void on_frame() override;
     void on_draw_ui() override;
